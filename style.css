@@ -1,0 +1,40 @@
+.img {
+  height: 30px;
+  width: 30px;
+}
+
+
+#windDirection {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.clear-sky {
+  background: #e8a420;
+  color: white;
+}
+
+.scattered-clouds {
+  background: #e8c985;
+  color: white;
+}
+
+.rain {
+  background: #90abe7;
+  color: white;
+}
+
+.thunderstorm {
+  background: #071158;
+  color: white;
+}
+
+.snow {
+  background: #57c7eb;
+  color: grey;
+}
+
+.mist {
+  background: grey;
+  color: white;
+}
