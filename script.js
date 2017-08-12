@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   //Weather uppercase
   function capitalize(descriptionData) {
     return descriptionData.charAt(0).toUpperCase() + descriptionData.slice(1);
@@ -19,36 +19,11 @@ $(document).ready(function() {
       $('#city').text(data.name);
       $('#country').text(', ' + data.sys.country);
       var descriptionData = data.weather[0].description;
+      var icon = data.weather[0].icon;
       $('#description').text(capitalize(descriptionData));
-        if (descriptionData === 'clear sky') {
-          $('.icon').append('<img class="img" src="img/clear-sky-day.png"/>');
-          $('body').addClass('clear-sky');
-        } else if (descriptionData === 'few clouds') {
-          $('.icon').append('<img class="img" src="img/few-clouds-day.png"/>');
-          $('body').addClass('clear-sky');
-        } else if ((descriptionData === 'scattered clouds') || (descriptionData === 'overcast clouds')) {
-          $('.icon').append('<img class="img" src="img/scattered-clouds-day.png"/>');
-          $('body').addClass('scattered-clouds');
-        } else if (descriptionData === 'broken clouds') {
-          $('.icon').append('<img class="img" src="img/broken-clouds-day.png"/>');
-          $('body').addClass('scattered-clouds');
-        } else if (descriptionData === 'shower rain') {
-          $('.icon').append('<img class="img" src="img/shower-rain-day.png"/>');
-          $('body').addClass('rain');
-        } else if ((descriptionData === 'rain') || descriptionData === 'light rain') {
-          $('.icon').append('<img class="img" src="img/rain-day.png"/>');
-          $('body').addClass('rain');
-        } else if (descriptionData === 'thunderstorm') {
-          $('.icon').append('<img class="img" src="img/thunderstorm-day.png"/>');
-          $('body').addClass('thunderstorm');
-        } else if (descriptionData === 'snow') {
-          $('.icon').append('<img class="img" src="img/snow-day.png"/>');
-          $('body').addClass('snow');
-        } else if (descriptionData === 'mist') {
-          $('.icon').append('<img class="img" src="img/mist-day.png"/>');
-          $('body').addClass('mist');
-        }
-        $('.icon').off('append');
+      $('.icon').empty();
+      $('.icon').append('<img class="img" src="http://openweathermap.org/img/w/' + icon + '.png"/>')
+
       $('#temp').text((data.main.temp - 272.15).toFixed(1));
       $('#wind').text(data.wind.speed);
       $('#humidity').text(data.main.humidity);
